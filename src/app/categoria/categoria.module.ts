@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoriaComponent } from './categoria.component';
-import { MaterialModule } from '../material/material.module';
 
 
 
@@ -9,7 +8,6 @@ import { MaterialModule } from '../material/material.module';
   declarations: [CategoriaComponent],
   imports: [
     CommonModule,
-    MaterialModule,
   ]
 })
 export class CategoriaModule { }
