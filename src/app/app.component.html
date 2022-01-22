@@ -1,1 +1,53 @@
-<router-outlet></router-outlet>
+<div class="wrapper">
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Web PDV</h3>
+        </div>
+        <ul class="list-unstyled components">
+            <p></p>
+            <li>
+                
+                <a href="#categoriaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon-layers"></i> &nbsp; Categorias</a>
+                <ul class="collapse list-unstyled" id="categoriaSubmenu">
+                    <li>
+                        <a href="#">Categoria</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#produtoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon-bag"></i> &nbsp;Produtos</a>
+                <ul class="collapse list-unstyled" id="produtoSubmenu">
+                    <li>
+                        <a href="#">Produtos</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pessoaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon-people"></i> &nbsp; Pessoas</a>
+                <ul class="collapse list-unstyled" id="pessoaSubmenu">
+                    <li>
+                        <a href="#">Pessoas</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div style="width: 100%; height: 100vh; background-color: rgb(228, 228, 228);">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white" style="height: 80px;">
+            <div class="container-fluid">
+    
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="icon-menu"></i>
+                </button>
+                
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-top border-bottom" style="height: 50px;"></nav>
+        <router-outlet></router-outlet>
+    </div>
+
+</div>       
