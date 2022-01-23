@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Categoria } from '../home/teste';
+import { CategoriaService } from './categoria.service';
 
 @Component({
   selector: 'app-categoria',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categoria.component.css']
 })
 export class CategoriaComponent implements OnInit {
-
-  constructor() { }
-
+  readonly barraNavegacao = {menu: 'Categoria', rota: 'categoria', submenu: 'Lista'};
+  constructor(private service: CategoriaService) { }
+  
+  categorias: Categoria[] = [];
+  
   ngOnInit(): void {
+    this.listCategoria();
+  }
+
+  listCategoria(): void {
+    this.service.listCategoria().subscribe(
+      {
+        next: (response:Categoria[])=> {
+            this.categorias = response;
+        },
+        error: (error)=>{
+            console.log(error.error);
+        }
+      }
+    )
   }
 
 }

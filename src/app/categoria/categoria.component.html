@@ -1,1 +1,38 @@
-<p>categoria works!</p>
+<app-menu-area-principal [barraNavegacao]="barraNavegacao">
+    <div class="card">
+        <div class="card-header">
+            <span>Categoria lista</span>
+        </div>
+        <div class="card-body">
+            <div class="form-group ml-auto" style="width: 300px;">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Procurar" aria-label="Usuário" aria-describedby="basic-addon1">
+                </div>
+            </div>
+              
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Ativo</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let categoria of categorias">
+                    <td>{{categoria.nome}}</td>
+                    <td [textContent]="categoria.ativo ? 'Sim':'Não'"></td>
+                    <td class="text-right">
+                        <span class=""><i class="icon-note cursor-pointer editar"></i></span>
+                        &nbsp;
+                        <span><i class="icon-trash cursor-pointer deletar"></i></span>   
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</app-menu-area-principal>
