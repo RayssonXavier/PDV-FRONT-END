@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { LoadingComponent } from '../loading/loading.component';
 import { HomeService } from './home.service';
 
 
@@ -9,6 +10,10 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent {
   readonly barraNavegacao = {menu: 'Home', rota: 'home', submenu: 'Tela Inicial'};
+  
+  // @ViewChild('loading')
+  // load: LoadingComponent;
+
   constructor(
     private service: HomeService,
   ){ }

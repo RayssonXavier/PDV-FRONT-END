@@ -1,3 +1,4 @@
+<app-loading #loading></app-loading>
 <app-menu-area-principal [barraNavegacao]="barraNavegacao">
     <div class="card">
         <div class="card-header">
@@ -23,9 +24,9 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let categoria of categorias">
-                    <td>{{categoria.nome}}</td>
-                    <td [textContent]="categoria.ativo ? 'Sim':'Não'"></td>
-                    <td class="text-right">
+                    <td class="col-3"><input type="checkbox"> &nbsp;{{categoria.nome}}</td>
+                    <td class="col" [textContent]="categoria.ativo ? 'Sim':'Não'"></td>
+                    <td class="text-right col">
                         <span class=""><i class="icon-note cursor-pointer editar"></i></span>
                         &nbsp;
                         <span><i class="icon-trash cursor-pointer deletar"></i></span>   
