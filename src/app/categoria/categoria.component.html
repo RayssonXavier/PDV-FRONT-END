@@ -1,8 +1,9 @@
-<app-loading #loading></app-loading>
+<app-loading></app-loading>
 <app-menu-area-principal [barraNavegacao]="barraNavegacao">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between">
             <span>Categoria lista</span>
+            <button class="btn btn-info btn-sm" (click)="rota('categoria-formulario')">Novo</button>
         </div>
         <div class="card-body">
             <div class="form-group ml-auto" style="width: 300px;">

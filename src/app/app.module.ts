@@ -7,8 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from './login/login.module';
 import { ProdutoComponent } from './produto/produto.component';
 import { HomeModule } from './home/home.module';
-import { LoadingComponent } from './loading/loading.component';
 import { LoadingModule } from './loading/loading.module';
+import { CategoriaFormularioComponent } from './categoria-formulario/categoria-formulario.component';
+import { CategoriaFormularioModule } from './categoria-formulario/categoria-formulario.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { LoadingModule } from './loading/loading.module';
     BrowserAnimationsModule,
     LoginModule,
     HomeModule,
+    CategoriaFormularioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

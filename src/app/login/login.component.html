@@ -1,6 +1,35 @@
-<div>
-    <br>
-    <p><input type="text" placeholder="login" [(ngModel)]="user.email"></p>
-    <p><input type="password" placeholder="senha" [(ngModel)]="user.password"></p>
-    <p><input type="button" value="Entrar" (click)="login()"></p>
-</div>
+<app-loading></app-loading>
+<main class=" main d-flex align-items-center justify-content-center cinza-app">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mx-auto">
+                <div class="card-group">
+                    <div class="card p-4">
+                       <div class="card-body">
+                           <div>
+                               <h1>Login</h1>
+                               <p class="text-secondary">Faça login em sua conta</p>
+                               <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="icon-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Usuário" [(ngModel)]="user.email">
+                              </div>
+                              <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="icon-lock"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Senha" [(ngModel)]="user.password">
+                              </div>
+                              <div class="d-flex mt-4">
+                                  <input type="button" class="btn btn-info px-4" value="Entrar" (click)="login()">
+                                  <a class="ml-auto cursor-pointer text-info">Esqueceu a senha?</a>
+                              </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
