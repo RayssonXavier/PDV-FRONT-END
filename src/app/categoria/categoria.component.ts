@@ -22,8 +22,8 @@ export class CategoriaComponent implements OnInit {
     this.listCategoria();
   }
 
-  rota(rota:string):void {
-    void this.router.navigate([rota]);
+  rota(rota:string, parametro: string):void {
+    void this.router.navigate([rota],{ queryParams: {tipo:parametro}});
   }
 
   listCategoria(): void {

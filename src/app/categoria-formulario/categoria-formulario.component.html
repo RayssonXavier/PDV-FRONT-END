@@ -1,18 +1,48 @@
 <app-loading></app-loading>
 <app-menu-area-principal [barraNavegacao]="barraNavegacao">
     <div class="card">
-        <div class="card-header">
-            <i class="icon-note mr-2"></i><span>Categoria Cadastro</span>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-2">
-                    <span>Nome:</span>
-                </div>
-                <div class="col-sm">
-                    <input type="text" class="form-control">
-                </div>
+        <form [formGroup] = "formulario" (ngSubmit)="cadastrarOuEditar()">
+            <div class="card-header">
+                <i class="icon-note mr-2"></i>
+                <span *ngIf="statusForm == 'CADASTRO'">Categoria Cadastro</span>
+                <span *ngIf="statusForm != 'CADASTRO'">Categoria Editar</span>
             </div>
-        </div>
+            <div class="card-body">
+              
+                    <div class="form-group">
+                        <label>Nome:</label>
+                        <input type="text" class="form-control" formControlName="nomeCtrl">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" formControlName="ativoCtrl" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Ativo</label>
+                        </div>
+                    </div>
+           
+                
+            </div>
+            <div class="card-footer d-flex">
+                
+                    <div class="mr-2">
+                        <input 
+                          type="submit" 
+                          *ngIf="statusForm == 'CADASTRO'"
+                          class="btn btn-primary btn-sm"
+                          value="Cadastrar"
+                          [disabled]="formulario.invalid">
+                        <input 
+                          type="submit"
+                          *ngIf="statusForm != 'CADASTRO'"
+                          class="btn btn-primary btn-sm" 
+                          value="Editar"
+                          [disabled]="formulario.invalid">
+                    </div>
+                    <div class="">
+                        <button class="btn btn-danger btn-sm">Cancelar</button>
+                    </div>
+             
+            </div>
+        </form>
     </div>
 </app-menu-area-principal>

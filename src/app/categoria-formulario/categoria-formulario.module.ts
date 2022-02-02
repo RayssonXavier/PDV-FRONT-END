@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CategoriaFormularioComponent } from './categoria-formulario.component';
 import { LoadingModule } from '../loading/loading.module';
 import { MenuAreaPrincipalModule } from '../menu-area-principal/menu-area-principal.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,6 +13,7 @@ import { MenuAreaPrincipalModule } from '../menu-area-principal/menu-area-princi
     CommonModule,
     LoadingModule,
     MenuAreaPrincipalModule,
+    ReactiveFormsModule,
   ]
 })
 export class CategoriaFormularioModule { }
