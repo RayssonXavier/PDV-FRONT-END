@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.service.login(this.user).subscribe(
       {
         next:(response:AutorizacaoUser)=> {
-            localStorage.setItem('token', JSON.stringify(response.accessToken));
+            localStorage.setItem('token', response.accessToken);
             this.router.navigate(['home']);
             this.loadingService.loading = false;
         },
