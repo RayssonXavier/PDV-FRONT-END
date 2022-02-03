@@ -32,11 +32,15 @@ export class CategoriaComponent implements OnInit {
     this.service.listCategoria().subscribe(
       {
         next: (response:Categoria[])=> {
-            this.categorias = response;
-            this.loadingService.loading = false;
+          console.log(response);
+          localStorage.setItem('categorias', JSON.stringify(response));
+          this.categorias = <Categoria[]>JSON.parse(localStorage.getItem('categorias') || "[]");
+          this.loadingService.loading = false;
         },
         error: (error)=>{
             console.log(error.error);
+            this.categorias = <Categoria[]>JSON.parse(localStorage.getItem('categorias') || "[]");
+            this.loadingService.loading = false;
         }
       }
     )
