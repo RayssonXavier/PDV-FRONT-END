@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build -- --prod
+        run: npm run build --prod
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
@@ -39,4 +39,4 @@ jobs:
           password: Wz00FolsuEFzSPvtZ9GZ4SfEPcag8kKEt0XXG8khfCEruXmbpw7xZfEaTslF
           protocol: ftps
           local-dir: ./dist/pdv/
-          server-dir: /site/wwwroot/
+          server-dir: site/wwwroot/
