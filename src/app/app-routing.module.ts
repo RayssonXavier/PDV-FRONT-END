@@ -10,6 +10,7 @@ import { GuardaTelaLoginService } from './shared/service/guarda-tela-login.servi
 const routes: Routes = [
   {path:'login', component:LoginComponent, canActivate: [GuardaTelaLoginService]},
   {path:'home', component:HomeComponent, canActivate:[AuthGuardServiceService]},
+  {path:'', component:HomeComponent, canActivate:[AuthGuardServiceService]},
   {path:'categoria', component:CategoriaComponent, canActivate:[AuthGuardServiceService]},
   {path:'categoria-formulario', component:CategoriaFormularioComponent, canActivate:[AuthGuardServiceService]},
 ];
