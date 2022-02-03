@@ -38,4 +38,4 @@ jobs:
           username: pdvnet\$pdvnet
           password: Wz00FolsuEFzSPvtZ9GZ4SfEPcag8kKEt0XXG8khfCEruXmbpw7xZfEaTslF
           protocol: ftps
-          local-dir: ./dist/pdv
+          local-dir: ./dist/pdv/
