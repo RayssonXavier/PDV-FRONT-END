@@ -34,6 +34,8 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
-          server: ftps://waws-prod-dm1-181.ftp.azurewebsites.windows.net/site/wwwroot
+          server: waws-prod-dm1-181.ftp.azurewebsites.windows.net/site/wwwroot
           username: pdvnet\$pdvnet
           password: Wz00FolsuEFzSPvtZ9GZ4SfEPcag8kKEt0XXG8khfCEruXmbpw7xZfEaTslF
+          protocol: ftps
+          local-dir: ./dist/pdv
