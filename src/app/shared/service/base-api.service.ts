@@ -10,6 +10,6 @@ export abstract class baseApiService{
             localStorage.getItem('token')
             );
 
-        return `Bearer ${token.split('"')[1]}`
+        return `Bearer ${token}`
     }
 }
