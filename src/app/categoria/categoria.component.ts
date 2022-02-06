@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Categoria } from '../home/teste';
+import { Categoria } from '../shared/model/categoria-model';
 import { LoadingService } from '../loading/loading.service';
 import { CategoriaService } from './categoria.service';
 
@@ -22,8 +22,8 @@ export class CategoriaComponent implements OnInit {
     this.listCategoria();
   }
 
-  rota(rota:string, parametro: string):void {
-    void this.router.navigate([rota],{ queryParams: {tipo:parametro}});
+  rota(rota:string, parametro: string, id: string | null):void {
+    void this.router.navigate([rota],{ queryParams: {tipo:parametro, id: id }});
   }
 
   listCategoria(): void {

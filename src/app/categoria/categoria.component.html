@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <span>Categoria lista</span>
-            <button class="btn btn-info btn-sm" (click)="rota('categoria-formulario', 'CADASTRAR')">Novo</button>
+            <button class="btn btn-info btn-sm" (click)="rota('categoria-formulario', 'CADASTRAR', null)">Novo</button>
         </div>
         <div class="card-body">
             <div class="form-group ml-auto" style="width: 300px;">
@@ -31,7 +31,7 @@
                         <span>
                           <i 
                           class="icon-note cursor-pointer editar"
-                          (click)="rota('categoria-formulario', 'EDITAR')"
+                          (click)="rota('categoria-formulario', 'EDITAR', categoria.id)"
                           >
                           </i>
                         </span>

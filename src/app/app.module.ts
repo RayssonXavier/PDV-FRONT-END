@@ -12,6 +12,7 @@ import { CategoriaFormularioComponent } from './categoria-formulario/categoria-f
 import { CategoriaFormularioModule } from './categoria-formulario/categoria-formulario.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ModalAvisoComponent } from './shared/componentes/modal-aviso/modal-aviso.component';
 
 
 @NgModule({
