@@ -24,6 +24,8 @@
     "@auth0/angular-jwt": "^5.0.2",
     "bootstrap": "^4.6.1",
     "jquery": "^3.6.0",
+    "ng2-currency-mask": "^13.0.3",
+    "ngx-toastr": "^14.2.1",
     "popper.js": "^1.14.3",
     "rxjs": "~7.4.0",
     "simple-line-icons": "^2.5.5",

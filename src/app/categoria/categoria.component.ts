@@ -32,7 +32,6 @@ export class CategoriaComponent implements OnInit {
     this.service.listCategoria().subscribe(
       {
         next: (response:Categoria[])=> {
-          console.log(response);
           localStorage.setItem('categorias', JSON.stringify(response));
           this.categorias = <Categoria[]>JSON.parse(localStorage.getItem('categorias') || "[]");
           this.loadingService.loading = false;
