@@ -30,7 +30,6 @@ import { Component, OnInit } from '@angular/core';
 export class ModalComponent implements OnInit {
 
   mostrar: boolean = false;
-  conteudo: string = '';
 
   toggle () {
     this.mostrar = !this.mostrar;
