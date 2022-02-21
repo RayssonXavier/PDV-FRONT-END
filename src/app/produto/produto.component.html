@@ -1,1 +1,98 @@
-<p>produto works!</p>
+<app-loading></app-loading>
+<app-menu-area-principal [barraNavegacao]="barraNavegacao">
+  
+  <app-modal #modal>
+    <h3 *ngIf="produtoForm.getRawValue().id == null">Cadastro de produtos</h3>
+    <h3 *ngIf="produtoForm.getRawValue().id != null">Editando <b>{{produtoForm.getRawValue().nome}}</b></h3>
+    <form [formGroup]="produtoForm">
+      <div class="form-group">
+        <label class="control-label" for="nome">Nome</label>
+        <input (keyup.enter)="keytab($event)" class="form-control" type="text" id="nome" formControlName="nome" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="descricao">Descrição</label>
+        <input (keyup.enter)="keytab($event)" class="form-control" type="text" id="descricao" formControlName="descricao" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="preco">Preço</label>
+        <input (keyup.enter)="keytab($event)" currencyMask class="form-control" id="preco" formControlName="valor" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="custo">Custo</label>
+        <input (keyup.enter)="keytab($event)" currencyMask class="form-control" id="custo" formControlName="custo" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="ativo">Ativo</label>
+        <input (keyup.enter)="keytab($event)" class="form-control" type="checkbox" id="ativo" formControlName="ativo" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="quantidade">Estoque</label>
+        <input (keyup.enter)="keytab($event)" class="form-control" type="number" id="quantidade" formControlName="quantidadeEstoque" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="quantidadeEstoqueCritico">Quantidade de estoque crítico</label>
+        <input (keyup.enter)="keytab($event)" class="form-control" type="number" id="quantidadeEstoqueCritico" formControlName="quantidadeEstoqueCritico" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="categoria">Categoria</label>
+        <select class="form-control" id="categoria" formControlName="idCategoriaProduto">
+          <option [value]="null" selected>Selecione</option>
+          <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="file" (change)="handleUpload($event)" />
+        <br /><br />
+        <img *ngIf="imagePath != 'null' && imagePath != ''" class="image-view" [src]="imagePath">
+      </div>
+      <button type="button" (click)="salvarProduto(); modal.toggle()" class="btn btn-primary" >Salvar</button>
+    </form>
+  </app-modal>
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <span>Produto lista</span>
+      <button class="btn btn-info btn-sm" (click)="novoProduto(); modal.toggle()">Novo</button>
+    </div>
+    <div class="card-body">
+      <div class="form-group ml-auto" style="width: 300px;">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="Procurar" aria-label="Usuário" aria-describedby="basic-addon1">
+        </div>
+      </div>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Ativo</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of produtos">
+            <td class="col-3"><input type="checkbox"> &nbsp;{{produto.nome}}</td>
+            <td class="col" [textContent]="produto.ativo ? 'Sim':'Não'"></td>
+            <td class="text-right col">
+              <span>
+                <i 
+                class="icon-note cursor-pointer editar"
+                (click)="editarProdutoModal(produto.id); modal.toggle()"
+                >
+              </i>
+            </span>
+            &nbsp;
+            <span>
+              <i 
+              class="icon-trash cursor-pointer deletar"
+              ></i>
+            </span>   
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</app-menu-area-principal>
