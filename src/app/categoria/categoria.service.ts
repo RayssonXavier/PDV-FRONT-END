@@ -27,7 +27,7 @@ export class CategoriaService extends baseApiService{
 
   public cadastrarCategoria(categoria: Categoria): Observable<Categoria> {
     return this.http.post<Categoria>(
-      `${this.BaseApi}/produto-categoria/create`,
+      `${this.BaseApi}/produto-categoria/`,
         categoria,
         {headers: new HttpHeaders()
         .set('content-type', 'application/json;charset=utf-8')
