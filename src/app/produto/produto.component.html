@@ -1,9 +1,10 @@
 <app-loading></app-loading>
 <app-menu-area-principal [barraNavegacao]="barraNavegacao">
   
-  <app-modal #modal>
+  <app-modal #modalForm>
     <h3 *ngIf="produtoForm.getRawValue().id == null">Cadastro de produtos</h3>
     <h3 *ngIf="produtoForm.getRawValue().id != null">Editando <b>{{produtoForm.getRawValue().nome}}</b></h3>
+    <hr>
     <form [formGroup]="produtoForm">
       <div class="form-group">
         <label class="control-label" for="nome">Nome</label>
@@ -45,13 +46,23 @@
         <br /><br />
         <img *ngIf="imagePath != 'null' && imagePath != ''" class="image-view" [src]="imagePath">
       </div>
-      <button type="button" (click)="salvarProduto(); modal.toggle()" class="btn btn-primary" >Salvar</button>
+      <button type="button" (click)="salvarProduto(); modalForm.toggle()" class="btn btn-primary" >Salvar</button>
     </form>
   </app-modal>
+
+  <app-modal #modalDeletar>
+    <h3>Deletar Produto</h3>
+    <hr>
+    <h5>Deseja realmente deletar o produto <b>{{produto.nome}}</b>?</h5>
+    <button type="button" (click)="deletarProduto(); modalDeletar.toggle()" class="btn btn-danger" >Sim</button>
+    &nbsp;
+    <button type="button" (click)="modalDeletar.toggle()" class="btn btn-primary" >Não</button>
+  </app-modal>
+
   <div class="card">
     <div class="card-header d-flex justify-content-between">
       <span>Produto lista</span>
-      <button class="btn btn-info btn-sm" (click)="novoProduto(); modal.toggle()">Novo</button>
+      <button class="btn btn-info btn-sm" (click)="novoProduto(); modalForm.toggle()">Novo</button>
     </div>
     <div class="card-body">
       <div class="form-group ml-auto" style="width: 300px;">
@@ -79,7 +90,7 @@
               <span>
                 <i 
                 class="icon-note cursor-pointer editar"
-                (click)="editarProdutoModal(produto.id); modal.toggle()"
+                (click)="editarProdutoModal(produto.id); modalForm.toggle()"
                 >
               </i>
             </span>
@@ -87,6 +98,7 @@
             <span>
               <i 
               class="icon-trash cursor-pointer deletar"
+              (click)="deletarProdutoModal(produto.id); modalDeletar.toggle()"
               ></i>
             </span>   
           </td>

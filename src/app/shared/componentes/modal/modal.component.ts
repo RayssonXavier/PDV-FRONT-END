@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -30,8 +30,16 @@ import { Component, OnInit } from '@angular/core';
 export class ModalComponent implements OnInit {
 
   mostrar: boolean = false;
+  ocultarNoOverlay: boolean = false;
+
+  // constructor(@Inject('ocultarNoOverlay') ocultarNoOverlay: boolean) {
+  //   this.ocultarNoOverlay = ocultarNoOverlay;
+  // }
 
   toggle () {
+    if(!this.ocultarNoOverlay && this.mostrar) {
+      return;
+    }
     this.mostrar = !this.mostrar;
   }
 
