@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 export abstract class baseApiService{
     public BaseApi = 'https://pdvnetwebapi.azurewebsites.net/api';
@@ -13,5 +13,12 @@ export abstract class baseApiService{
             );
 
         return `Bearer ${token}`
+    }
+
+    public retornaHeader(): HttpHeaders {
+        return new HttpHeaders()
+        .set('content-type', 'application/json;charset=utf-8')
+        .set('Access-Control-Allow-Origin', '*')
+        .set('Authorization', `${this.retornaToken()}`)
     }
 }

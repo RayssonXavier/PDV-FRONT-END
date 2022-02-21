@@ -1,51 +1,33 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 import { Produto } from '../shared/model/produto-model';
-import { baseApiService } from '../shared/service/base-api.service';
+import { CrudApiService } from '../shared/service/crud-api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProdutoService extends baseApiService{
+export class ProdutoService extends CrudApiService<Produto>{
   private api = "/produto/list"
   
   constructor(http: HttpClient ) {
-    super(http);
+    super(http, "produto");
    }
 
-   listProdutos(): Observable<Produto[]> {
-    
-    return this.http.get<Produto[]>(
-      `${this.BaseApi}${this.api}`,{headers: new HttpHeaders()
-        .set('content-type', 'application/json;charset=utf-8')
-        .set('Access-Control-Allow-Origin', '*')
-        .set('Authorization', `${this.retornaToken()}`)
-       }
-    )
+  async listarProdutos(): Promise<Produto[]> {
+    return await lastValueFrom(this.list());
   }
 
-  cadastrarProduto(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(
-      `${this.BaseApi}/produto/create`,
-        produto,
-        {headers: new HttpHeaders()
-        .set('content-type', 'application/json;charset=utf-8')
-        .set('Access-Control-Allow-Origin', '*')
-        .set('Authorization', `${this.retornaToken()}`)
-      }, 
-    )
+  async cadastrarProduto(produto: Produto): Promise<Produto> {
+    return await lastValueFrom(this.create(produto));
   }
 
-  atualizarProduto(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(
-      `${this.BaseApi}/produto/edit`,
-        produto,
-        {headers: new HttpHeaders()
-        .set('content-type', 'application/json;charset=utf-8')
-        .set('Access-Control-Allow-Origin', '*')
-        .set('Authorization', `${this.retornaToken()}`)
-      }, 
-    )
+  async deletarProduto(produto: Produto): Promise<Produto> {
+    return await lastValueFrom(this.delete(produto.id));
   }
+
+  async atualizarProduto(produto: Produto): Promise<Produto> {
+    return await lastValueFrom(this.edit(produto));
+  }
+
 }
