@@ -8,8 +8,7 @@ import { CrudApiService } from '../shared/service/crud-api.service';
   providedIn: 'root'
 })
 export class ProdutoService extends CrudApiService<Produto>{
-  private api = "/produto/list"
-  
+
   constructor(http: HttpClient ) {
     super(http, "produto");
    }

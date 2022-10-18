@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 export abstract class baseApiService{
-    public BaseApi = 'https://pdvnetwebapi.azurewebsites.net/api';
+    //public BaseApi = 'https://pdvnetwebapi.azurewebsites.net/api';
 
-    // public BaseApi = 'https://localhost:44350/api';
+    public BaseApi = 'https://localhost:5001/api';
 
     constructor(public http: HttpClient){}
 
